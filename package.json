@@ -2,7 +2,7 @@
   "name": "datocms-plugin-commercetools-product",
   "homepage": "https://github.com/naren-bellala/commercetools-dato-plugin",
   "version": "0.0.1",
-  "description": "A plugin that allows users to search and select Commercetools SKU",
+  "description": "A plugin that allows users to search and select Commercetools SKUs",
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server --port 5000",
@@ -10,46 +10,74 @@
     "addToProject": "yo datocms-plugin:add-to-project",
     "prepublishOnly": "rimraf lib dist && mkdir dist && npm run dist",
     "lint": "eslint \"./src/*.{js,jsx}\"",
+    "lint:fix": "eslint --fix \"./src/*.{js,jsx}\"",
     "test": "echo 1"
   },
-  "keywords": ["datocms","datocms-plugin","field-editor","string-field","commercetools","product picker","sku picker"],
-  "files": ["dist", "docs"],
+  "keywords": [
+    "datocms",
+    "datocms-plugin",
+    "field-editor",
+    "string-field",
+    "commercetools",
+    "dato-plugin"
+  ],
+  "files": [
+    "dist",
+    "docs"
+  ],
   "author": "Naren Bellala <naren.bellala@amido.com>",
   "license": "ISC",
   "datoCmsPlugin": {
-    "title": "Commercetools product picker",
+    "title": "commercetools dato plugin",
     "previewImage": "docs/preview.gif",
     "coverImage": "docs/cover.png",
     "entryPoint": "dist/index.html",
     "pluginType": "field_editor",
-    "fieldTypes": ["string"],
+    "fieldTypes": [
+      "string"
+    ],
     "parameters": {
-  "global": [
-    {
-      "id": "developmentMode",
-      "label": "Development mode",
-      "type": "boolean",
-      "required": true,
-      "default": false,
-      "hint": "Shows debug messages in console"
+      "global": [
+        {
+          "id": "clientId",
+          "label": "Commercetools client ID",
+          "type": "string",
+          "required": true,
+          "default": "9aF1OBkOH8e4hiQvAVkEo5L3",
+          "hint": "If you do not posses a api key please visit <code>https://docs.commercetools.com/merchant-center/api-clients</code>"
+        },
+        {
+          "id": "clientSecret",
+          "label": "Commercetools client secret",
+          "type": "string",
+          "required": true,
+          "default": "<YOUR_SECRET>",
+          "hint": "If you do not posses a api key please visit <code>https://docs.commercetools.com/merchant-center/api-clients</code>"
+        },
+        {
+          "id": "projectKey",
+          "label": "Commercetools project key",
+          "type": "string",
+          "required": true,
+          "default": "production-store",
+          "hint": "If you do not posses a project_key please visit <code>https://docs.commercetools.com/merchant-center/api-clients</code>"
+        }
+      ],
+      "instance": []
     }
-  ],
-  "instance": []
-}
   },
   "devDependencies": {
-    
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.0",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/plugin-proposal-decorators": "^7.1.2",
     "@babel/preset-react": "^7.0.0",
-    
     "@babel/cli": "^7.0.0-beta.54",
     "@babel/core": "^7.0.0-beta.54",
     "@babel/preset-env": "^7.0.0-beta.54",
-    "@babel/register": "^7.0.0-beta.54", "babel-eslint": "^8.2.6",
+    "@babel/register": "^7.0.0-beta.54",
+    "babel-eslint": "^8.2.6",
     "babel-loader": "^8.0.0-beta",
     "css-loader": "^1.0.0",
     "eslint": "^5.3.0",
@@ -71,12 +99,10 @@
     "yo": "^3.1.1"
   },
   "dependencies": {
-    
     "classname": "^0.0.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "prop-types": "^15.6.2",
-    
     "html-webpack-tags-plugin": "^2.0.17"
   }
 }
