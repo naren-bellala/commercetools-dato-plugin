@@ -1053,6 +1053,33 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
+"@commercetools/api-request-builder@^5.6.2":
+  version "5.6.2"
+  resolved "https://registry.yarnpkg.com/@commercetools/api-request-builder/-/api-request-builder-5.6.2.tgz#424d67b24b279e1244d7015ea39057a25f4cd64b"
+  integrity sha512-zY/BjluzY5QrTR8dW/0g/Gczq81odS605DiattKsr9Jusj9UEC8d+dkHwo2ZHYx/qhL9n6RhcTVkVOAgpD/FAA==
+
+"@commercetools/sdk-client@^2.1.2":
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/@commercetools/sdk-client/-/sdk-client-2.1.2.tgz#fe1e442f67a385f103470669784c0fa20d7a2314"
+  integrity sha512-YPpK39pkjfedjS1/BFg2d7CrvTeN7vIS5vfiqEkKOtAoUxiNkugv59gRSoh2Em8SOccxyM/skpgHyTqfmJzXug==
+
+"@commercetools/sdk-middleware-auth@^6.1.4":
+  version "6.1.4"
+  resolved "https://registry.yarnpkg.com/@commercetools/sdk-middleware-auth/-/sdk-middleware-auth-6.1.4.tgz#c5f464ae1627336715681e4590b63777e034c890"
+  integrity sha512-49R1DWsA+pNHH7/2K6QU5wnJSXabljKA8dvzs5HcbLwutlDp3Io0XHgIJa9qpfYhgW6k0h9dPICcLbESrQBXYw==
+  dependencies:
+    node-fetch "^2.3.0"
+
+"@commercetools/sdk-middleware-http@^6.0.7":
+  version "6.0.7"
+  resolved "https://registry.yarnpkg.com/@commercetools/sdk-middleware-http/-/sdk-middleware-http-6.0.7.tgz#7b35316b3eb0af815898f622de8f51a12c58110c"
+  integrity sha512-+SCSGyqH178DxuL/Lk86xzFS2aygNjLKSCLdwZpAJayWe9nU7XsO9ICdkjw43C+gOYKzqCW7JZREfTUPqjRILg==
+
+"@commercetools/sdk-middleware-logger@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@commercetools/sdk-middleware-logger/-/sdk-middleware-logger-2.1.1.tgz#9283fdc8c403a7e2d4d06637e6015770b864e64a"
+  integrity sha512-k/Jm3lsWbszPBHtPAvu0rINTq398p4ddv0zbAH8R4p6Yc1GkBEy6tNgHPzX/eFskI/qerPy9IsW1xK8pqgtHHQ==
+
 "@iarna/toml@^2.2.3":
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/@iarna/toml/-/toml-2.2.5.tgz#b32366c89b43c6f8cefbdefac778b9c828e3ba8c"
@@ -6757,6 +6784,11 @@ node-fetch@^1.0.1:
   dependencies:
     encoding "^0.1.11"
     is-stream "^1.0.1"
+
+node-fetch@^2.3.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.0.tgz#e633456386d4aa55863f676a7ab0daa8fdecb0fd"
+  integrity sha512-8dG4H5ujfvFiqDmVu9fQ5bOHUC15JMjMY/Zumv26oOvvVJjM67KF8koCWIabKQ1GJIa9r2mMZscBq/TbdOcmNA==
 
 node-forge@0.9.0:
   version "0.9.0"
