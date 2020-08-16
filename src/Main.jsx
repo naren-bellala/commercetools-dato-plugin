@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 
 import connectToDatoCms from "./connectToDatoCms";
 import "./style.sass";
-
-@connectToDatoCms(plugin => ({
+// eslint-disable-next-line
+@connectToDatoCms((plugin) => ({
   developmentMode: plugin.parameters.global.developmentMode,
-  fieldValue: plugin.getFieldValue(plugin.fieldPath),
+  fieldValue: plugin.getFieldValue("title"),
 }))
 export default class Main extends Component {
   static propTypes = {
@@ -16,6 +16,6 @@ export default class Main extends Component {
   render() {
     const { fieldValue } = this.props;
     console.log("Field Value here!!!!!!!!!!>>>>>>>", fieldValue);
-    return <div className="container">Naren was here!!!</div>;
+    return <div className="container">{JSON.stringify(fieldValue)}</div>;
   }
 }
