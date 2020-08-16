@@ -13,7 +13,7 @@ import "./style.sass";
 
 @connectToDatoCms((plugin) => ({
   developmentMode: plugin.parameters.global.developmentMode,
-  fieldValue: plugin.getFieldValue("title"),
+  fieldValue: plugin.getFieldValue(plugin.fieldPath),
   clientId: plugin.parameters.global.clientId,
   clientSecret: plugin.parameters.global.clientSecret,
   projectKey: plugin.parameters.global.projectKey,
@@ -28,7 +28,10 @@ export default class Main extends Component {
 
   constructor(props) {
     super(props);
-    this.state;
+    this.state = {
+      searchTerm: "a",
+      results: [],
+    };
     this.ctpClient = createClient({
       // The order of the middlewares is important !!!
       middlewares: [
@@ -61,9 +64,12 @@ export default class Main extends Component {
         },
       },
     });
-    let freetextSearch = "piped";
+    this.searchCT();
+  }
+
+  searchCT() {
     let productQuery = this.requestBuilder.productProjectionsSearch;
-    productQuery.text(freetextSearch, "EN-GB");
+    productQuery.text(this.state.searchTerm, "EN-GB");
     productQuery.perPage(5);
     let productRequest = {
       uri: productQuery.build(),
@@ -72,8 +78,16 @@ export default class Main extends Component {
     this.doRequest(productRequest).then((response) => {
       if (response.body && response.body.results) {
         console.log("response.body.results:::::>>>", response.body.results);
+        this.setState({
+          ...this.state,
+          results: response.body.results,
+        });
       }
     });
+  }
+
+  componentDidMount() {
+    this.searchCT();
   }
 
   doRequest(request) {
@@ -100,9 +114,29 @@ export default class Main extends Component {
     }
   }
 
+  handleChange(e) {
+    this.setState({
+      ...this.state,
+      searchTerm: e.target.value,
+    });
+    this.searchCT();
+  }
+
   render() {
     const { fieldValue } = this.props;
     console.log("Field Value here!!!!!!!!!!>>>>>>>", fieldValue);
-    return <div className="container">{JSON.stringify(fieldValue)}</div>;
+    return (
+      <div className="container">
+        <div>
+          <label htmlFor="searchInput">Search:</label>
+          <input
+            type="text"
+            name="searchInput"
+            onChange={this.handleChange.bind(this)}
+          />
+        </div>
+        {JSON.stringify(this.state.results.map((item) => item.key))}
+      </div>
+    );
   }
 }
