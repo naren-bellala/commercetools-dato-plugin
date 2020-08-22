@@ -14,7 +14,6 @@ module.exports = {
   devServer: {
     contentBase: './',
     disableHostCheck: true,
-    public: 'http://localhost:5000',
   },
   module: {
     rules: [
@@ -27,7 +26,8 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
-        use: { loader: 'babel-loader' } },
+        use: { loader: 'babel-loader' }
+      },
       {
         test: /\.sass$/,
         use: [
@@ -46,11 +46,16 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    alias: {
+      'react': 'preact-compat',
+      'react-dom': 'preact-compat',
+      'create-react-class': 'preact-compat/lib/create-react-class',
+      'react-dom-factories': 'preact-compat/lib/react-dom-factories'
+    }
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'DatoCMS plugin',
+      title: 'Star rating editor plugin',
       minify: isProduction,
     }),
     new HtmlWebpackTagsPlugin({
